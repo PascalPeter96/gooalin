@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "670528746891",
+    "project_id": "gooalin",
+    "storage_bucket": "gooalin.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:670528746891:android:cf8a67d8901df9ac782b8e",
+        "android_client_info": {
+          "package_name": "com.gooalin.gooalin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "670528746891-87cfpg3b99vh8698ej4i8hcm8941ae6b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.gooalin.gooalin",
+            "certificate_hash": "87210ab851de8686e9173ed27c79164e38650865"
+          }
+        },
+        {
+          "client_id": "670528746891-2d3ms6hf9v3v0ejm456m69kusrekaud6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALM5nZJSgvHAu5K0PmAn7cZd5rAHAiVpI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "670528746891-2d3ms6hf9v3v0ejm456m69kusrekaud6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
