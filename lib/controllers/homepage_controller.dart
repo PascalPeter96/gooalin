@@ -21,4 +21,8 @@ class HomePageController extends GetxController{
     firebaseController.logOut();
   }
 
+  void googleLogOut(){
+    firebaseController.googleLogOut();
+  }
+
 }

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:gooalin/controllers/register_controller.dart';
-import 'package:gooalin/views/logIn.dart';
 
 class Register extends StatelessWidget {
   const Register({Key? key}) : super(key: key);
@@ -20,6 +19,7 @@ class Register extends StatelessWidget {
           ),
           child: SingleChildScrollView(
             child: Form(
+              // autovalidateMode: AutovalidateMode.onUserInteraction,
               key: registerController.regFormKey,
               child: Column(
                 children: [
@@ -29,6 +29,8 @@ class Register extends StatelessWidget {
                   ),),),
                   SizedBox(height: 20,),
                   TextFormField(
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                    maxLength: 15,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
@@ -37,10 +39,18 @@ class Register extends StatelessWidget {
                       prefixIcon: Icon(Icons.person),
                     ),
                     controller: registerController.firstName,
+                    validator: (value){
+                      return registerController.validateName(value!);
+                    },
+                    onSaved: (value){
+                      registerController.firstName.text=value!;
+                    },
                     keyboardType: TextInputType.name,
                   ),
                   SizedBox(height: 20,),
                   TextFormField(
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                    maxLength: 15,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
@@ -49,10 +59,17 @@ class Register extends StatelessWidget {
                       prefixIcon: Icon(Icons.person),
                     ),
                     controller: registerController.lastName,
+                    validator: (value){
+                      return registerController.validateName(value!);
+                    },
+                    onSaved: (value){
+                      registerController.lastName.text=value!;
+                    },
                     keyboardType: TextInputType.name,
                   ),
                   SizedBox(height: 20,),
                   TextFormField(
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
@@ -71,6 +88,7 @@ class Register extends StatelessWidget {
                   ),
                   SizedBox(height: 20,),
                   TextFormField(
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),

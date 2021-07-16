@@ -12,17 +12,16 @@ class Login extends StatelessWidget {
         Get.put(LoginController());
     return SafeArea(
       child: Scaffold(
-        body: SafeArea(
-          child: Container(
-            margin: EdgeInsets.only(
-              top: 100,
-              left: 15,
-              right: 15,
-            ),
-            child: SingleChildScrollView(
-              child: Form(
-                key: loginController.loginFormKey,
-                child: Column(
+        body: Container(
+          margin: EdgeInsets.only(
+            top: 100,
+            left: 15,
+            right: 15,
+          ),
+          child: SingleChildScrollView(
+            child: Form(
+              key: loginController.loginFormKey,
+              child: Column(
                 children: [
                   Center(child: Text('Login', style: TextStyle(
                     fontWeight: FontWeight.bold,
@@ -30,6 +29,7 @@ class Login extends StatelessWidget {
                   ),),),
                   SizedBox(height: 20,),
                   TextFormField(
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
@@ -48,6 +48,7 @@ class Login extends StatelessWidget {
                   ),
                   SizedBox(height: 20,),
                   TextFormField(
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
@@ -67,10 +68,10 @@ class Login extends StatelessWidget {
                   ),
                   SizedBox(height: 20,),
                   ElevatedButton(
-                      onPressed: (){
-                        loginController.loginCheck();
-                      },
-                      child: Text('Login'),),
+                    onPressed: (){
+                      loginController.loginCheck();
+                    },
+                    child: Text('Login'),),
                   SizedBox(height: 5,),
                   TextButton(
                     onPressed: (){
@@ -78,10 +79,20 @@ class Login extends StatelessWidget {
                     },
                     child: Text('No account! Register'),
                   ),
+                  SizedBox(height: 20,
+                    child: Text('OR'),
+                  ),
+                  GestureDetector(
+                    onTap: (){
+                      loginController.googleLogIn();
+                    },
+                    child: Image(image: AssetImage('assets/g1.png',),
+                      height: 50,
+                    ),
+                  ),
 
                 ],
               ),),
-            ),
           ),
         ),
       ),

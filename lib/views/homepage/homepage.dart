@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:gooalin/controllers/homepage_controller.dart';
-import 'package:gooalin/controllers/live_fixture_controller.dart';
 import 'package:gooalin/themes/theme_services.dart';
 
 class HomePage extends StatelessWidget {
@@ -33,7 +32,15 @@ class HomePage extends StatelessWidget {
         ),
         body: Column(
           children: [
-            Text('Name : '),
+            Image.network(homePageController.firebaseController.imageUrl.toString()),
+            Text('Google SignOut: '),
+            SizedBox(height: 10,),
+            ElevatedButton(
+                onPressed: (){
+                  homePageController.googleLogOut();
+                },
+                child: Text('Google SignOut')),
+
           ],
         )
       ),

@@ -30,6 +30,18 @@ class RegisterController extends GetxController{
 
   }
 
+  String? validateName(String value){
+    if(value.length<=1){
+      return 'too short';
+    } else {
+      if(value.length>=15){
+        return 'too long';
+      }else{
+        return null;
+      }
+    }
+  }
+
   String? validateEmail(String value){
     if(!GetUtils.isEmail(value)){
       return 'Use valid email';
@@ -47,7 +59,15 @@ class RegisterController extends GetxController{
   }
 
   void registerCheck(){
-    firebaseController.createUser(firstName.text, lastName.text, email.text, password.text);
+    final regForm = regFormKey.currentState!;
+    if(regForm.validate()){
+      print('Valid Form');
+      firebaseController.createUser(firstName.text, lastName.text, email.text, password.text);
+    }else
+    {
+      return null;
+    }
+
 
   }
 }

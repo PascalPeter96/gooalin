@@ -42,9 +42,19 @@ class LoginController extends GetxController{
   }
 
   void loginCheck(){
-    firebaseController.login(email.text, password.text);
-    email.clear();
-    password.clear();
+    final loginForm = loginFormKey.currentState!;
+    if(loginForm.validate()){
+      print('Welcome $email');
+      firebaseController.login(email.text, password.text);
+      email.clear();
+      password.clear();
+    }else{
+      return null;
+    }
+  }
+
+  void googleLogIn(){
+    firebaseController.googleLogIn();
   }
 
 }
